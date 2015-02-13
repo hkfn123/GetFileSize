@@ -18,7 +18,7 @@ static long long getFileSize(const char *path);
 
 int main(int argc, const char * argv[]) {
     
-    printf("%lld\n",getFileSize("/Users/zhanzhi/Desktop/software"));
+    printf("%lld\n",getFileSize("/Users/***/Desktop/software"));
     
     return 0;
 }
@@ -52,7 +52,6 @@ static long long getFileSize(const char *path){
                     strcmp(file->d_name,"..") == 0)
                     continue;
                 sprintf(filepath,"%s/%s",path,file->d_name);
-                //printf("%s\n",filepath);
                 getFileSize(filepath);
             }
         }
@@ -61,10 +60,6 @@ static long long getFileSize(const char *path){
             fileSize += file_stat.st_size;
         }
     }
-    
-    
-    
-    
     return fileSize;
 }
 

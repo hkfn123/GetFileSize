@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
 
 
 static long long getFileSize(const char *path){
-    static long long fileSize = 0;
+    long long fileSize = 0;
     char filepath[k_file_path_length] = {0};
     struct stat file_stat = {0};
     
@@ -52,7 +52,7 @@ static long long getFileSize(const char *path){
                     strcmp(file->d_name,"..") == 0)
                     continue;
                 sprintf(filepath,"%s/%s",path,file->d_name);
-                getFileSize(filepath);
+                fileSize += getFileSize(filepath);
             }
         }
         
